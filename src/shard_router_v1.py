@@ -1,7 +1,16 @@
+from dotenv import load_dotenv
+import os
+
 import pandas as pd
 import psycopg2
 from datetime import datetime
 from psycopg2.extras import execute_values
+
+#load_dotenv()
+load_dotenv(dotenv_path="../docker/.env")
+
+user = os.getenv("POSTGRES_USER")
+password = os.getenv("POSTGRES_PASSWORD")
 
 # Borough to shard mapping
 NEIGHBOURHOOD_SHARD_MAP = {
@@ -22,10 +31,10 @@ NEIGHBOURHOOD_SHARD_MAP = {
 
 # Connection config
 SHARD_DB_CONFIG = {
-    'shard1': {'dbname': 'shard1_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5433},
-    'shard2': {'dbname': 'shard2_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5434},
-    'shard3': {'dbname': 'shard3_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5435},
-    'shard4': {'dbname': 'shard4_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5436},
+    'shard1': {'dbname': 'shard1_db', 'user': user, 'password': password, 'host': 'localhost', 'port': int(os.getenv("PG_SHARD1_PORT"))},
+    'shard2': {'dbname': 'shard2_db', 'user': user, 'password': password, 'host': 'localhost', 'port': int(os.getenv("PG_SHARD2_PORT"))},
+    'shard3': {'dbname': 'shard3_db', 'user': user, 'password': password, 'host': 'localhost', 'port': int(os.getenv("PG_SHARD3_PORT"))},
+    'shard4': {'dbname': 'shard4_db', 'user': user, 'password': password, 'host': 'localhost', 'port': int(os.getenv("PG_SHARD4_PORT"))},
 }
 
 # Load cleaned data
