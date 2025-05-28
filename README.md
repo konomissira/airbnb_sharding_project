@@ -71,7 +71,7 @@ GRAFANA_ADMIN_PASSWORD=YourGrafanaPassword
 
 ### 3. Download and clean the dataset
 
-Because `/data` is `.gitignore`-d to avoid slow Git pushes, you must manually download and clean the dataset here's the link: https://insideairbnb.com/fr/get-the-data/
+Because `/data` folder is in `.gitignore` file to avoid slow Git pushes, you must manually download and clean the dataset here's the link: https://insideairbnb.com/fr/get-the-data/
 
 Also, you must have Jupyter Notebook in order to run eda_analysis.ipynb and clean_data.ipynb which will clean and save the clean data into the data folder.
 
