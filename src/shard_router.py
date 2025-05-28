@@ -20,12 +20,12 @@ NEIGHBOURHOOD_SHARD_MAP = {
     'Bexley': 'shard4',
 }
 
-# Connection config
+# Connection config if you want to test it locally before integrate with .env
 SHARD_DB_CONFIG = {
-    'shard1': {'dbname': 'shard1_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5433},
-    'shard2': {'dbname': 'shard2_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5434},
-    'shard3': {'dbname': 'shard3_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5435},
-    'shard4': {'dbname': 'shard4_db', 'user': 'kono', 'password': 'pwdpwdpwd', 'host': 'localhost', 'port': 5436},
+    'shard1': {'dbname': 'shard1_db', 'user': 'YourUSerName', 'password': 'YourPassWord', 'host': 'localhost', 'port': 5433},
+    'shard2': {'dbname': 'shard2_db', 'user': 'YourUSerName', 'password': 'YourPassWord', 'host': 'localhost', 'port': 5434},
+    'shard3': {'dbname': 'shard3_db', 'user': 'YourUSerName', 'password': 'YourPassWord', 'host': 'localhost', 'port': 5435},
+    'shard4': {'dbname': 'shard4_db', 'user': 'YourUSerName', 'password': 'YourPassWord', 'host': 'localhost', 'port': 5436},
 }
 
 # Load cleaned data
