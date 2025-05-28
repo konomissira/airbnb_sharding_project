@@ -14,11 +14,10 @@ This project showcases a professional level data engineering solution using **Po
 │   ├── docker-compose.yml     # Multi-service setup: shards, pgAdmin,
 │   └── .env                   # Stores credentials and ports
 ├── notebooks/
-    ├── eda_analysis.ipynb     # EDA Analysis to understand the data
+│   ├── eda_analysis.ipynb     # EDA Analysis to understand the data
     ├── clean_data.ipynb       # Cleans and saves Airbnb data
 ├── src/
-│   ├── shard_router.py        # Routes cleaned data to appropriate shard without using .env file for testing
-    ├── shard_router_v1.py     # Routes cleaned data to appropriate shard using .env
+│   ├── shard_router_v1.py     # Routes cleaned data to appropriate shard using .env
 ├── .gitignore
 └── README.md
 ```
@@ -143,3 +142,13 @@ SELECT neighbourhood, AVG(price) FROM listings GROUP BY neighbourhood;
 -   Integrate Apache Airflow
 -   Add automated test scripts for ETL validation
 -   Provision Grafana panels programmatically
+
+## License
+
+-   This project is licensed under the MIT License.
+-   You are free to use, modify, and distribute this software with proper attribution.
+
+## Author
+
+-   **Name:** Mahamadou
+-   **Role:** Data Engineer
