@@ -9,3 +9,5 @@ data/
 
 .venv/
 .DS_Store
+
+kono-key.pem

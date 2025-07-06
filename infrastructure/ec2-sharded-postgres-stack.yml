@@ -12,7 +12,7 @@ Resources:
     Properties:
       InstanceType: t3.medium
       KeyName: !Ref KeyName
-      ImageId: ami-0fc5d935ebf8bc3bc # Ubuntu 22.04 LTS in eu-west-1
+      ImageId: ami-0dc0ac921efee9f9d # Ubuntu 22.04 LTS in eu-west-1
       SecurityGroups:
         - !Ref ShardedSecurityGroup
       Tags:
@@ -26,33 +26,29 @@ Resources:
           sudo usermod -aG docker ubuntu
           git clone https://github.com/konomissira/airbnb_sharding_project.git /home/ubuntu/shard-project
           cd /home/ubuntu/shard-project/docker
-          cp .env.example .env  # if needed
+          cp .env.example .env
           docker-compose up -d
 
   ShardedSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow SSH and local-only ports
-      VpcId: !Ref DefaultVPC
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 0.0.0.0/0  # SSH
+          CidrIp: 0.0.0.0/0  # SSH from anywhere
         - IpProtocol: tcp
           FromPort: 5432
           ToPort: 5435
-          CidrIp: 127.0.0.1/32  # PostgreSQL shards (local tunnel)
+          CidrIp: 127.0.0.1/32  # Local-only access for PostgreSQL shards
         - IpProtocol: tcp
           FromPort: 5050
           ToPort: 5050
-          CidrIp: 127.0.0.1/32  # pgAdmin (local tunnel)
+          CidrIp: 127.0.0.1/32  # Local-only access for pgAdmin
       Tags:
         - Key: Name
           Value: postgres-shard-sg
-
-  DefaultVPC:
-    Type: AWS::EC2::VPC::Id
 
 Outputs:
   InstancePublicIP:
